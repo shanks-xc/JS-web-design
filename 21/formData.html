@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>formData</title>
+</head>
+<body>
+	<form id="user-info">
+		<input type="text" name="name">
+		<input type="text" name="age">
+		<input type="text" name="sex">
+		<span>发送</span>
+	</form>
+</body>
+<script type="text/javascript">
+function submitData(){
+	var form = document.getElementById("user-info");
+	var xhr=new XMLHttpRequest()
+xhr.onreadystatechange=function(){
+	if(xhr.readyState==4)
+	{
+		if(xhr.status==200)
+		{
+
+			console.log(new FormData(form))
+		}
+	}
+}
+//不用写请求头部信息
+xhr.open("post","./shanks.php")
+xhr.send(new FormData(form))
+}
+var span=document.getElementsByTagName("span")[0]
+span.onclick=function(){
+	submitData()
+}
+</script>
+</html>

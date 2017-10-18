@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第十三章</title>
+</head>
+<style type="text/css" src="./style.css"></style>
+<style type="text/css">
+.container{
+	width: 500px;height: 500px;background:red;
+}
+.wrap{
+	width: 400px;height: 400px;background:green;
+}
+.text{
+	width: 300px;height: 300px;background:orange;
+}
+</style>
+<body>
+</body>
+<script type="text/javascript">
+var person={
+		name:"shanks",
+		age:22,
+		sex:"man",
+		toJSON:function(){
+			return this.name
+		}
+	}
+var stringj=JSON.stringify(person)
+var jsonj=JSON.parse(stringj)
+	console.log(stringj)
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

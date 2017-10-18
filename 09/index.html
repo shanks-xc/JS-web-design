@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第八章</title>
+</head>
+<style type="text/css" src="./style.css"></style>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+/*//将url后面的参数转为对象
+var obj={}
+name=null
+age=null
+var parse=location.search.substring(1).split("&")
+parse.forEach(function(item,index){
+	var newItem=item.split("=")
+	for(var i=0;i<newItem.length;i++)
+	{
+			 name=newItem[0]
+			 age=newItem[1]
+			obj[name]=age
+			return obj
+	}	
+})
+console.log(obj)*/
+//"Widevine Content Decryption Module"
+function hasPlugin(name)
+{
+	name=name.toLowerCase()
+	var plugins=navigator.plugins
+	
+	for (var i = 0; i < plugins.length; i++) {
+		if(plugins[i].name.toLowerCase().indexOf(name)>-1)
+			{return true}
+		else{
+			return false
+		}
+	}
+}
+
+console.log(hasPlugin("Widevine Content Decryption Modul"))
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

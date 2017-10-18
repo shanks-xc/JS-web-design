@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第十一章</title>
+</head>
+<style type="text/css">
+	#Drag{width: 200px;height: 200px;background-color: green;position: absolute;cursor: pointer;}
+</style>
+<body>
+<p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p><p>22</p>
+<div id="Drag"></div>
+</body>
+<script type="text/javascript">
+function Drag(id)
+{
+	var Drag=document.getElementById(id)
+ 	Drag.onmousedown=function(event){
+ 	var distanX=event.pageX-Drag.offsetLeft
+ 	var distanY=event.pageY-Drag.offsetTop
+ 	console.log(distanX)
+ 	document.onmousemove=function(events){
+ 			Drag.style.left=events.pageX-distanX+"px"
+ 			Drag.style.top=events.pageY-distanY+"px"
+ 			console.log(Drag.style.left)
+ 	}
+ 	Drag.onmouseup = function () {
+                    //清空事件
+                    document.onmousemove = null;
+                    Drag.onmouseup = null;
+                }
+
+ }
+}
+ Drag("Drag")
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

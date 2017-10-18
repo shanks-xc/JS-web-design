@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第七章</title>
+</head>
+<body>
+	<div id="div">点击</div>
+</body>
+<script type="text/javascript">
+/*function click(){
+ var div=document.getElementById("div")
+ var id=div.id
+ div.onclick=function(){
+ 	alert(id)
+ }
+ var div=null
+}
+click()*/
+/*function number(){
+	(function(){for (var i = 0; i < 10; i++) {
+		console.log(i)
+	}})()
+	var i
+	console.log(i)
+}number()*/
+function person(){
+	return function(){
+	console.log("get")
+   }
+}
+person()()
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

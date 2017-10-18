@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第二十一章</title>
+</head>
+<style type="text/css" src="./style.css"></style>
+<style type="text/css">
+</style>
+<body>
+<form id="user-info" method="post" action="http://localhost/javascript-high/21/shanks.php">
+名字<input type="" name="user-name">
+邮箱<input type="" name="user-email">
+
+<span>点击</span>
+
+</form>
+</body>
+<script type="text/javascript">
+/*var  xhr=new XMLHttpRequest()|| new ActiveXObject("Microsoft.XMLHTTP")
+	xhr.open("GET","name.json",false) //同步
+	xhr.send()
+	if(xhr.status==200)
+	{
+		alert(xhr.responseText)
+	}
+	else{
+		alert(xhr.status)
+	}*/
+/*	var  xhr=new XMLHttpRequest()|| new ActiveXObject("Microsoft.XMLHTTP")
+	//在get后面添加参数
+	function addURLparse(url,name,value)
+	{
+		url+=url.indexOf("?")==-1 ?"?":"&"
+		url+=encodeURIComponent(name)+"="+encodeURIComponent(value)
+		return url
+
+	}
+	var url="name.json"
+	url=addURLparse(url,"name","shanks")
+	url=addURLparse(url,"name2","shanks2")
+	xhr.open("GET",url,true) //异步
+	xhr.send()
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4) //表示响应过程
+		{
+			if(xhr.status==200)//http状态码
+			{
+				console.log(xhr.responseText)
+				console.log(xhr.getAllResponseHeaders())
+			}
+		}
+	}*/
+	/*function sayname(){
+		var name="shanks"
+		 return (function(){
+			alert(name)
+		})()
+	}
+	sayname()*/
+
+/*
+	function serialize(form){
+var parts = [],
+field = null,
+i,
+len,
+j,
+optLen,
+option,
+optValue;
+for (i=0, len=form.elements.length; i < len; i++){
+field = form.elements[i];
+switch(field.type){
+case "select-one":
+case "select-multiple":
+if (field.name.length){
+for (j=0, optLen = field.options.length; j < optLen; j++){
+option = field.options[j];
+if (option.selected){
+optValue = "";
+if (option.hasAttribute){
+optValue = (option.hasAttribute("value") ?
+option.value : option.text);
+} else {
+optValue = (option.attributes["value"].specified ?
+option.value : option.text);
+}
+parts.push(encodeURIComponent(field.name) + "=" +
+encodeURIComponent(optValue));
+}
+}
+}
+break;
+case undefined: //字段集
+case "file": //文件输入
+case "submit": //提交按钮
+case "reset": //重置按钮
+case "button": //自定义按钮
+break;
+case "radio": //单选按钮
+case "checkbox": //复选框
+if (!field.checked){
+break;
+}
+/* 执行默认操作 */
+/*default:*/
+//不包含没有名字的表单字段
+/*if (field.name.length){
+parts.push(encodeURIComponent(field.name) + "=" +
+encodeURIComponent(field.value));
+}
+}
+}
+return parts.join("&");
+}
+
+
+function submitData(){
+var xhr = new XMLHttpRequest()|| new ActiveXObject("Microsoft.XMLHTTP");
+xhr.onreadystatechange = function(){
+if (xhr.readyState == 4){
+if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+alert(xhr.responseText);
+} else {
+alert("Request was unsuccessful: " + xhr.status);
+}
+}
+};
+xhr.open("post", "http://localhost/javascript-high/21/shanks.php", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+var form = document.getElementById("user-info");
+xhr.send(serialize(form));
+console.log(serialize(form))
+}
+
+var span=document.getElementsByTagName("span")[0]
+span.onclick=function(){
+	var form = document.getElementById("user-info");
+	serialize(form)
+	submitData()
+}*/
+var postData = {  
+    "name1": "value1",  
+    "name2": "value2"};  
+   
+postData = (function(obj){ // 转成post需要的字符串.  
+    var str = "";  
+   
+    for(var prop in obj){  
+        str += prop + "=" + obj[prop] + "&"  
+    }  
+    return str;  
+})(postData);  
+   
+var xhr = new XMLHttpRequest();  
+   
+xhr.open("POST", "./shanks.php", true);  
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");  
+xhr.onreadystatechange = function(){  
+    var XMLHttpReq = xhr;  
+    if (XMLHttpReq.readyState == 4) {  
+        if (XMLHttpReq.status == 200) {  
+            var text = XMLHttpReq.responseText;  
+   
+            console.log(text);  
+        }  
+    }  
+}; 
+console.log(postData)
+xhr.send(postData);  
+</script>
+</html>

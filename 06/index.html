@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第二章</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+/*var obj={
+	_year:2004,
+	edition:1
+}
+Object.defineProperty(obj,"year",{
+	enumerable:true,
+	get:function(){
+		return this._year*2
+	},
+	set:function(newValue){
+		if(newValue>2004)
+		{
+			this._year=newValue
+			this.edition=newValue-2004
+		}
+	}
+})
+obj.year=2006
+var result=Object.getOwnPropertyDescriptor(obj,"year")
+console.log(result.get)*/
+//工厂模式
+/*function createPerson(name,age)
+{
+	var obj={name:name,age:age}
+	return obj
+}
+var person1=createPerson("shanks",11)
+var person2=createPerson("hona",12)
+console.log(person1.name)
+console.log(person2.name)
+console.log(person1 instanceof Object)
+//构造函数
+function createPerson()
+{
+	
+}*/
+/*createPerson.prototype={
+	name:"shanks",
+	age:22,
+	sayname:function(){
+		return this.name
+	}
+}*/
+
+
+
+/*var person1=new createPerson("shanks",11)
+person1.name="new"
+
+createPerson.prototype.name="shanks"
+createPerson.prototype.age=22
+createPerson.prototype.sayname=function(){return this.name}
+
+Object.defineProperty(person1,"toString",{
+	enumerable:true
+})*/
+
+/*
+var person2=new createPerson("shasadasnks",56)*/
+/*for (i in person1)
+{
+	console.log(i)
+}*/
+/*var keys=Object.getOwnPropertyNames(Array.prototype)
+console.log(keys)*/
+
+/*function Person(){}
+Person.prototype={
+	constructor:Person,
+	name:"shanks",
+	age:22,
+	friends:["shanks","jack"]
+}
+var person1=new Person()
+var person2=new Person()
+person1.friends.push("eleven")
+console.log(person1.friends)
+console.log(person2.friends)*/
+/*function subs(){
+	this.subsValue=false
+	this.color=["red","green"]
+}
+subs.prototype.getsubs=function(){
+	return this.color
+}
+
+function supers(){
+	this.supersValue=true
+	subs.call(this)
+}
+supers.prototype=new subs()
+supers.prototype.getsupers=function(){
+	return this.supersValue
+}
+supers.property=function(){return "shanks"}
+instance1=new supers()
+instance1.color.push("black")
+instance2=new supers()
+
+console.log(instance1 instanceof supers)
+console.log(instance2.getsubs())*/
+
+
+/*var person={
+	name:"shanks",
+	color:["red","green"]
+}
+var anotherPerson=Object.create(person)
+anotherPerson.name="shanks2"
+anotherPerson.color.push("black")
+console.log(person.name)*/
+
+
+function object(o)
+{
+	function F(){}
+	F.prototype=o
+	return new F()
+}
+
+
+function inheritPrototype(subType,superType)
+{
+	var prototype=object(superType.prototype)
+	prototype.constructor=subType
+	subType.prototype=prototype
+}
+
+function SuperType(name){
+	this.name=name
+	this.colors=["red","black"]
+}
+SuperType.prototype.sayName=function(){
+	alert(this.name)
+}
+function SubType(name,age){
+	SuperType.call(this,name)
+	this.age=age
+}
+inheritPrototype(SubType,SuperType)
+SubType.prototype.sayAge=function(){
+	alert(this.age)
+}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

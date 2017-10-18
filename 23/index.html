@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript高级程序设计第十三章</title>
+</head>
+<style type="text/css" src="./style.css"></style>
+<style type="text/css">
+.container{
+	width: 500px;height: 500px;background:red;
+}
+.wrap{
+	width: 400px;height: 400px;background:green;
+}
+.text{
+	width: 300px;height: 300px;background:orange;
+}
+</style>
+<body>
+<div class="container">
+	<div class="wrap">
+		<div class="text"></div>
+		<img src="http://www.yilaiya.cn/uploads/170830/1-1FS0160T5560.jpg">
+		<input type="" name="" class="input">
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+/*var container=document.querySelector(".container")
+var wrap=document.querySelector(".wrap")
+var text=document.querySelector(".text")
+
+container.addEventListener("click",classNames)
+wrap.addEventListener("click",classNames)
+text.addEventListener("click",classNames)
+	function classNames(events,age){
+		console.log(events)
+		alert(event.target)
+		alert(this.className)
+		return event.stopPropagation()
+		
+	}*/
+
+	/*window.onscroll=function(){
+		alert(1)
+	}*/
+/*	EventUtil.addHandle(window,"load",function(){
+	alert("this is a load")
+})*/
+/*var img=new Image();  
+    img.onload=function(){alert("img is loaded")};  
+    img.onerror=function(){alert("error!")};  
+    img.src="http://www.yilaiya.cn/templets/yilaiya_style_two/images/alert_wechat.jpg";  
+    function show(){alert("body is loaded");};  
+    window.onload=show; */
+    /*var input=document.querySelector(".input")
+    input.onfocus=function(){
+    	console.log("触发了焦点事件")
+    }*/
+    var input=document.querySelector(".input")
+    input.onkeydown=function(){
+    	if(event.keyCode==13)
+    	{
+    		console.log("按下了回车")
+    	}
+    	else{
+    		console.log("没有按下回车")
+    	}
+    }
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
